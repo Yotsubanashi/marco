@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vision - A Space for Dreams & Growth</title>
+    <link rel="stylesheet" href="inspire.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">✨</span>
+                <span class="brand-text">My Vision</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#vision-board" class="nav-link" data-page="vision-board">My Vision Board</a></li>
+                <li><a href="#goals" class="nav-link" data-page="goals">Goals</a></li>
+                <li><a href="#about" class="nav-link" data-page="about">About Me</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="menu-icon">☰</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- HOME PAGE -->
+        <section class="page active" id="home">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="sparkle sparkle-1">✨</div>
+                        <div class="sparkle sparkle-2">💫</div>
+                        <div class="sparkle sparkle-3">⭐</div>
+                        <h1 class="hero-title">Welcome to My Vision Journey</h1>
+                        <p class="hero-subtitle">A space where dreams take shape, goals become reality, and inspiration flows freely</p>
+                        <button class="cta-btn" id="ctaBtn">
+                            <span>Explore My Vision Board</span>
+                            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M10 4l6 6-6 6M16 10H4" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values Section -->
+            <div class="core-values">
+                <div class="container">
+                    <h2 class="section-title">My Core Values</h2>
+                    <p class="section-subtitle">The principles that guide my journey</p>
+
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">🌱</div>
+                            <h3 class="value-title">Growth</h3>
+                            <p class="value-description">Continuously evolving and learning from every experience</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">💖</div>
+                            <h3 class="value-title">Compassion</h3>
+                            <p class="value-description">Leading with kindness and understanding in all I do</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <h3 class="value-title">Purpose</h3>
+                            <p class="value-description">Living intentionally and aligning actions with dreams</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">✨</div>
+                            <h3 class="value-title">Authenticity</h3>
+                            <p class="value-description">Staying true to myself and honoring my unique path</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🌟</div>
+                            <h3 class="value-title">Joy</h3>
+                            <p class="value-description">Finding beauty and happiness in the present moment</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">💪</div>
+                            <h3 class="value-title">Resilience</h3>
+                            <p class="value-description">Rising stronger from challenges and embracing change</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY VISION BOARD PAGE -->
+        <section class="page" id="vision-board">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">My Vision Board</h1>
+                    <p class="page-description">A visual representation of my dreams, goals, and the life I'm creating</p>
+                </div>
+            </div>
+
+            <div class="board-controls">
+                <div class="container">
+                    <button class="control-btn" id="addImageBtn">
+                        <span>📷</span>
+                        <span>Add Image</span>
+                    </button>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+
+                    <button class="control-btn" id="addQuoteBtn">
+                        <span>💭</span>
+                        <span>Add Quote</span>
+                    </button>
+
+                    <button class="control-btn" id="addAffirmationBtn">
+                        <span>💫</span>
+                        <span>Add Affirmation</span>
+                    </button>
+
+                    <button class="control-btn clear-btn" id="clearBoardBtn">
+                        <span>🗑️</span>
+                        <span>Clear All</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="vision-board-container">
+                <div class="container">
+                    <div class="vision-board masonry-grid" id="visionBoard">
+                        <!-- Example Vision Board Items -->
+                        <div class="board-item" data-aos="fade-up">
+                            <div class="board-item-content quote-item">
+                                <p class="quote-text">"She believed she could, so she did"</p>
+                            </div>
+                        </div>
+
+                        <div class="board-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="board-item-content affirmation-item">
+                                <p class="affirmation-text">I am worthy of all my dreams</p>
+                                <div class="affirmation-sparkle">✨</div>
+                            </div>
+                        </div>
+
+                        <div class="board-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="board-item-content icon-item">
+                                <div class="large-icon">🌸</div>
+                                <p class="icon-label">Inner Peace</p>
+                            </div>
+                        </div>
+
+                        <div class="board-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="board-item-content quote-item gradient-bg-1">
+                                <p class="quote-text">"Dream big, start small, act now"</p>
+                            </div>
+                        </div>
+
+                        <div class="board-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="board-item-content icon-item">
+                                <div class="large-icon">🦋</div>
+                                <p class="icon-label">Transformation</p>
+                            </div>
+                        </div>
+
+                        <div class="board-item" data-aos="fade-up" data-aos-delay="500">
+                            <div class="board-item-content affirmation-item gradient-bg-2">
+                                <p class="affirmation-text">I attract abundance in all forms</p>
+                                <div class="affirmation-sparkle">💫</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOALS PAGE -->
+        <section class="page" id="goals">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">My Goals</h1>
+                    <p class="page-description">Turning dreams into actionable steps, one goal at a time</p>
+                    <div class="motivational-quote">
+                        <p>"The future belongs to those who believe in the beauty of their dreams"</p>
+                        <span class="quote-author">— Eleanor Roosevelt</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goals-container">
+                <div class="container">
+                    <!-- Career Goals -->
+                    <div class="goal-category">
+                        <h2 class="category-title">
+                            <span class="category-icon">💼</span>
+                            <span>Career</span>
+                        </h2>
+                        <div class="goals-list">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Learn to code</h3>
+                                    <span class="goal-deadline">Dec 2025</span>
+                                </div>
+                                <p class="goal-description">Build a strong online presence and establish myself as a software engineer in my field</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 20%"></div>
+                                    </div>
+                                    <span class="progress-label">20% Complete</span>
+                                </div>
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Master a New Skill</h3>
+                                    <span class="goal-deadline">Dec 2025</span>
+                                </div>
+                                <p class="goal-description">Complete advanced certification in my chosen field</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 35%"></div>
+                                    </div>
+                                    <span class="progress-label">35% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Goals -->
+                    <div class="goal-category">
+                        <h2 class="category-title">
+                            <span class="category-icon">💪</span>
+                            <span>Health & Wellness</span>
+                        </h2>
+                        <div class="goals-list">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Daily Meditation Practice</h3>
+                                    <span class="goal-deadline">Ongoing</span>
+                                </div>
+                                <p class="goal-description">Establish a consistent 20-minute morning meditation routine for mental clarity</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span class="progress-label">85% Complete</span>
+                                </div>
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Exercise 4x Per Week</h3>
+                                    <span class="goal-deadline">Ongoing</span>
+                                </div>
+                                <p class="goal-description">Maintain regular physical activity for overall health and energy</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 70%"></div>
+                                    </div>
+                                    <span class="progress-label">70% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Finance Goals -->
+                    <div class="goal-category">
+                        <h2 class="category-title">
+                            <span class="category-icon">💰</span>
+                            <span>Financial Freedom</span>
+                        </h2>
+                        <div class="goals-list">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Build Emergency Fund</h3>
+                                    <span class="goal-deadline">Mar 2026</span>
+                                </div>
+                                <p class="goal-description">Save 6 months of living expenses for financial security and peace of mind</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 5%"></div>
+                                    </div>
+                                    <span class="progress-label">50% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lifestyle Goals -->
+                    <div class="goal-category">
+                        <h2 class="category-title">
+                            <span class="category-icon">🌿</span>
+                            <span>Lifestyle</span>
+                        </h2>
+                        <div class="goals-list">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Travel to 3 New Places</h3>
+                                    <span class="goal-deadline">Dec 2025</span>
+                                </div>
+                                <p class="goal-description">Explore new cultures and create unforgettable memories</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 33%"></div>
+                                    </div>
+                                    <span class="progress-label">33% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Growth Goals -->
+                    <div class="goal-category">
+                        <h2 class="category-title">
+                            <span class="category-icon">📚</span>
+                            <span>Personal Growth</span>
+                        </h2>
+                        <div class="goals-list">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Read 50 Books This Year</h3>
+                                    <span class="goal-deadline">Dec 2025</span>
+                                </div>
+                                <p class="goal-description">Expand knowledge and perspective through diverse reading</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 58%"></div>
+                                    </div>
+                                    <span class="progress-label">58% Complete</span>
+                                </div>
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3 class="goal-title">Journal Daily</h3>
+                                    <span class="goal-deadline">Ongoing</span>
+                                </div>
+                                <p class="goal-description">Practice self-reflection and gratitude through daily journaling</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-label">75% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME PAGE -->
+        <section class="page" id="about">
+            <div class="about-container">
+                <div class="container">
+                    <div class="about-hero">
+                        <div class="decorative-element star-1">⭐</div>
+                        <div class="decorative-element star-2">✨</div>
+                        <div class="decorative-element star-3">💫</div>
+
+                        <div class="about-content">
+                            <div class="profile-section">
+                                <div class="profile-image-wrapper">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23fbc2eb;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23a6c1ee;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='100' fill='url(%23grad)'/%3E%3Ctext x='100' y='120' font-size='60' text-anchor='middle' fill='white'%3E✨%3C/text%3E%3C/svg%3E" alt="Profile" class="profile-image">
+                                </div>
+                            </div>
+
+                            <div class="about-text">
+                                <h1 class="about-title">Hello, I'm Marco M. Almueda</h1>
+                                <p class="about-intro">A dreamer, a doer, and a believer</p>
+
+                                <div class="bio-section">
+                                    <p class="bio-text">
+                                        Welcome to my personal vision space. This is where I collect my dreams, track my progress,
+                                        and remind myself of the beautiful life I'm creating. I believe that clarity leads to
+                                        manifestation, and that every goal worth achieving starts with a vision.
+                                    </p>
+                                    <p class="bio-text">
+                                        I'm passionate about personal growth, mindful living, and creating a life that aligns
+                                        with my deepest values. This vision board is more than just a collection of pretty
+                                        images—it's a roadmap to my future and a daily reminder of what truly matters.
+                                    </p>
+                                </div>
+
+                                <div class="philosophy-section">
+                                    <h2 class="philosophy-title">My Life Philosophy</h2>
+                                    <div class="philosophy-content">
+                                        <div class="philosophy-item">
+                                            <span class="philosophy-icon">🌱</span>
+                                            <p>Growth is not linear—embrace the journey with all its ups and downs</p>
+                                        </div>
+                                        <div class="philosophy-item">
+                                            <span class="philosophy-icon">💖</span>
+                                            <p>Lead with love and compassion, both for myself and others</p>
+                                        </div>
+                                        <div class="philosophy-item">
+                                            <span class="philosophy-icon">✨</span>
+                                            <p>Magic happens when intention meets action</p>
+                                        </div>
+                                        <div class="philosophy-item">
+                                            <span class="philosophy-icon">🌟</span>
+                                            <p>Every day is a new opportunity to become who I'm meant to be</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Created with love and intention ✨</p>
+            <p class="footer-copyright">&copy; 2025 My Vision Journey. All dreams reserved.</p>
+        </div>
+    </footer>
+
+    <script src="inspire.js"></script>
+</body>
+</html>
