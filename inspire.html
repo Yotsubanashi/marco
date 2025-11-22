@@ -207,7 +207,7 @@
                             <span>Career</span>
                         </h2>
                         <div class="goals-list">
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="learn-to-code">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Learn to code</h3>
                                     <span class="goal-deadline">Dec 2025</span>
@@ -221,7 +221,7 @@
                                 </div>
                             </div>
 
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="master-new-skill">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Master a New Skill</h3>
                                     <span class="goal-deadline">Dec 2025</span>
@@ -244,7 +244,7 @@
                             <span>Health & Wellness</span>
                         </h2>
                         <div class="goals-list">
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="daily-meditation">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Daily Meditation Practice</h3>
                                     <span class="goal-deadline">Ongoing</span>
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
 
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="exercise-4x">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Exercise 4x Per Week</h3>
                                     <span class="goal-deadline">Ongoing</span>
@@ -281,7 +281,7 @@
                             <span>Financial Freedom</span>
                         </h2>
                         <div class="goals-list">
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="emergency-fund">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Build Emergency Fund</h3>
                                     <span class="goal-deadline">Mar 2026</span>
@@ -304,7 +304,7 @@
                             <span>Lifestyle</span>
                         </h2>
                         <div class="goals-list">
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="travel-3-places">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Travel to 3 New Places</h3>
                                     <span class="goal-deadline">Dec 2025</span>
@@ -327,7 +327,7 @@
                             <span>Personal Growth</span>
                         </h2>
                         <div class="goals-list">
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="read-50-books">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Read 50 Books This Year</h3>
                                     <span class="goal-deadline">Dec 2025</span>
@@ -341,7 +341,7 @@
                                 </div>
                             </div>
 
-                            <div class="goal-card">
+                            <div class="goal-card" data-goal-id="journal-daily">
                                 <div class="goal-header">
                                     <h3 class="goal-title">Journal Daily</h3>
                                     <span class="goal-deadline">Ongoing</span>
@@ -429,6 +429,39 @@
             <p class="footer-copyright">&copy; 2025 My Vision Journey. All dreams reserved.</p>
         </div>
     </footer>
+
+    <!-- Goal Detail Modal -->
+    <div class="goal-modal" id="goalModal">
+        <div class="goal-modal-overlay" id="goalModalOverlay"></div>
+        <div class="goal-modal-content">
+            <button class="goal-modal-close" id="goalModalClose">×</button>
+            <div class="goal-modal-header">
+                <h2 class="goal-modal-title" id="goalModalTitle"></h2>
+                <span class="goal-modal-deadline" id="goalModalDeadline"></span>
+            </div>
+            <div class="goal-modal-body">
+                <div class="goal-modal-section">
+                    <label class="goal-modal-label">
+                        <span class="label-icon">📝</span>
+                        <span>What I've Learned / Progress Notes</span>
+                    </label>
+                    <textarea 
+                        class="goal-modal-textarea" 
+                        id="goalModalNotes" 
+                        placeholder="Share what you've learned, track your progress, or jot down important notes about this goal...&#10;&#10;Example for 'Learn to code':&#10;- Completed HTML & CSS basics&#10;- Learning JavaScript fundamentals&#10;- Built my first website project"
+                        rows="10"
+                    ></textarea>
+                </div>
+            </div>
+            <div class="goal-modal-footer">
+                <button class="goal-modal-btn goal-modal-btn-cancel" id="goalModalCancel">Cancel</button>
+                <button class="goal-modal-btn goal-modal-btn-save" id="goalModalSave">
+                    <span>💾</span>
+                    <span>Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="inspire.js"></script>
 </body>

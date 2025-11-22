@@ -311,6 +311,147 @@ function initHoverEffects() {
     });
 }
 
+// ===== GOAL MODAL =====
+function initGoalModal() {
+    const goalModal = document.getElementById('goalModal');
+    const goalModalOverlay = document.getElementById('goalModalOverlay');
+    const goalModalClose = document.getElementById('goalModalClose');
+    const goalModalCancel = document.getElementById('goalModalCancel');
+    const goalModalSave = document.getElementById('goalModalSave');
+    const goalModalTitle = document.getElementById('goalModalTitle');
+    const goalModalDeadline = document.getElementById('goalModalDeadline');
+    const goalModalNotes = document.getElementById('goalModalNotes');
+    
+    let currentGoalId = null;
+
+    // Get goal card data
+    function getGoalCardData(goalCard) {
+        const goalId = goalCard.getAttribute('data-goal-id');
+        const title = goalCard.querySelector('.goal-title')?.textContent || '';
+        const deadline = goalCard.querySelector('.goal-deadline')?.textContent || '';
+        return { goalId, title, deadline };
+    }
+
+    // Open modal
+    function openModal(goalCard) {
+        const { goalId, title, deadline } = getGoalCardData(goalCard);
+        currentGoalId = goalId;
+        
+        goalModalTitle.textContent = title;
+        goalModalDeadline.textContent = deadline;
+        
+        // Load saved notes
+        const savedNotes = loadGoalNotes(goalId);
+        goalModalNotes.value = savedNotes || '';
+        
+        goalModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus on textarea after animation
+        setTimeout(() => {
+            goalModalNotes.focus();
+        }, 300);
+    }
+
+    // Close modal
+    function closeModal() {
+        goalModal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentGoalId = null;
+        goalModalNotes.value = '';
+    }
+
+    // Save notes to localStorage
+    function saveGoalNotes(goalId, notes) {
+        const goalData = {
+            notes: notes,
+            lastUpdated: new Date().toISOString()
+        };
+        localStorage.setItem(`goal_${goalId}`, JSON.stringify(goalData));
+        console.log(`Saved notes for goal: ${goalId}`);
+    }
+
+    // Load notes from localStorage
+    function loadGoalNotes(goalId) {
+        const savedData = localStorage.getItem(`goal_${goalId}`);
+        if (savedData) {
+            try {
+                const data = JSON.parse(savedData);
+                return data.notes || '';
+            } catch (e) {
+                console.error('Error loading goal notes:', e);
+                return '';
+            }
+        }
+        return '';
+    }
+
+    // Make all goal cards clickable
+    const goalCards = document.querySelectorAll('.goal-card[data-goal-id]');
+    goalCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Don't open modal if clicking on buttons or interactive elements
+            if (e.target.closest('button')) {
+                return;
+            }
+            openModal(card);
+        });
+    });
+
+    // Close modal handlers
+    if (goalModalClose) {
+        goalModalClose.addEventListener('click', closeModal);
+    }
+
+    if (goalModalCancel) {
+        goalModalCancel.addEventListener('click', closeModal);
+    }
+
+    if (goalModalOverlay) {
+        goalModalOverlay.addEventListener('click', closeModal);
+    }
+
+    // Save button handler
+    if (goalModalSave) {
+        goalModalSave.addEventListener('click', () => {
+            if (currentGoalId) {
+                const notes = goalModalNotes.value.trim();
+                saveGoalNotes(currentGoalId, notes);
+                
+                // Show save confirmation
+                const originalText = goalModalSave.innerHTML;
+                goalModalSave.innerHTML = '<span>✓</span><span>Saved!</span>';
+                goalModalSave.style.background = 'var(--gradient-secondary)';
+                
+                setTimeout(() => {
+                    goalModalSave.innerHTML = originalText;
+                    goalModalSave.style.background = '';
+                }, 1500);
+                
+                // Close modal after short delay
+                setTimeout(() => {
+                    closeModal();
+                }, 1500);
+            }
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && goalModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Prevent modal content clicks from closing modal
+    const modalContent = goalModal.querySelector('.goal-modal-content');
+    if (modalContent) {
+        modalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+}
+
 // ===== INITIALIZE ON DOM LOAD =====
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
@@ -319,6 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProgressBars();
     initSmoothScroll();
     initHoverEffects();
+    initGoalModal();
 
     // Trigger initial animations
     setTimeout(() => {
