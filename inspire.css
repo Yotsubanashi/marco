@@ -490,6 +490,26 @@ body {
     overflow: hidden;
 }
 
+.board-item-content.image-content {
+    padding: 0;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-item-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
+.board-item-content:has(img) {
+    padding: 0;
+}
+
 .board-item-content:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
@@ -785,6 +805,7 @@ body {
     border-radius: 50%;
     box-shadow: var(--shadow-lg);
     border: 4px solid white;
+    object-fit: cover;
 }
 
 .about-text {
